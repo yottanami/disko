@@ -44,7 +44,7 @@ let
     # generated from disko config
     virtualisation.fileSystems = cfg_.disko.devices._config.fileSystems;
     boot = cfg_.disko.devices._config.boot or { };
-    swapDevices = cfg_.disko.devices._config.swapDevices or [ ];
+    swapDevices = lib.mkForce (cfg_.disko.devices._config.swapDevices or [ ]);
   };
 
   hostPkgs = config.virtualisation.host.pkgs;
